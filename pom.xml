@@ -5,15 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ro.sda</groupId>
-    <artifactId>booking_accommodation</artifactId>
+    <artifactId>booking-accommodation</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>sda-booking_accommodation</name>
+    <name>sda-booking-accommodation</name>
 
     <modules>
-        <module>booking_accommodation_commons</module>
-        <module>booking_accommodation_core</module>
-        <module>booking_accommodation_rest</module>
+        <module>booking-accommodation-commons</module>
+        <module>booking-accommodation-core</module>
+        <module>booking-accommodation-rest</module>
     </modules>
 
     <properties>
