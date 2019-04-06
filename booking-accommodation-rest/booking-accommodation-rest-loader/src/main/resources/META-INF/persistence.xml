@@ -4,7 +4,7 @@
              version="2.1">
     <persistence-unit name="booking-accommodation" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <!--<class>ro.sda.hypermarket.core.entity.Supplier</class>-->
+        <class>ro.sda.bookingaccommodation.core.entity.Client</class>
         <!--<class>ro.sda.hypermarket.core.entity.Product</class>-->
         <!--<class>ro.sda.hypermarket.core.entity.Department</class>-->
         <!--<class>ro.sda.hypermarket.core.entity.Employee</class>-->
