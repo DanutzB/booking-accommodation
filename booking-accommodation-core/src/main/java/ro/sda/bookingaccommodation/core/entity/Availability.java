@@ -1,6 +1,7 @@
 package ro.sda.bookingaccommodation.core.entity;
 
 import ro.sda.bookingaccommodation.core.base.BaseEntity;
+import ro.sda.bookingaccommodation.core.enums.RoomType;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -27,7 +28,7 @@ public class Availability extends BaseEntity {
     private Date toDate;
 
     @Column (name = "room_type", length = 40, nullable = false)
-    private String roomType;
+    private RoomType roomType;
 
     @Column (name = "price_double", length = 10, nullable = false)
     private BigDecimal priceDouble;
@@ -67,11 +68,11 @@ public class Availability extends BaseEntity {
         this.toDate = toDate;
     }
 
-    public String getRoomType() {
+    public RoomType getRoomType() {
         return roomType;
     }
 
-    public void setRoomType(String roomType) {
+    public void setRoomType(RoomType roomType) {
         this.roomType = roomType;
     }
 
