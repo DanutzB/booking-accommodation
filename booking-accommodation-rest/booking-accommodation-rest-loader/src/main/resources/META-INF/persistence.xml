@@ -10,7 +10,7 @@
         <class>ro.sda.bookingaccommodation.core.entity.Booking</class>
         <class>ro.sda.bookingaccommodation.core.entity.Payment</class>
         <class>ro.sda.bookingaccommodation.core.entity.Rating</class>
-        <!--<class>ro.sda.bookingaccommodation.core.entity.Availability</class>-->
+        <class>ro.sda.bookingaccommodation.core.entity.Availability</class>
         <class>ro.sda.bookingaccommodation.core.entity.Client</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 

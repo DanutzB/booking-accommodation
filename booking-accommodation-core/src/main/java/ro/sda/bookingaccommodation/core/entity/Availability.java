@@ -10,7 +10,7 @@ import java.util.Date;
 @Table(name = "availability", schema = "booking-accommodation")
 public class Availability extends BaseEntity {
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "property_id")
     private Property property;
 
