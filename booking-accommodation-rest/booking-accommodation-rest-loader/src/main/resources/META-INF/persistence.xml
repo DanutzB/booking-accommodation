@@ -5,13 +5,13 @@
     <persistence-unit name="booking-accommodation" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>ro.sda.bookingaccommodation.core.entity.Client</class>
-        <!--<class>ro.sda.hypermarket.core.entity.Product</class>-->
-        <!--<class>ro.sda.hypermarket.core.entity.Department</class>-->
-        <!--<class>ro.sda.hypermarket.core.entity.Employee</class>-->
-        <!--<class>ro.sda.hypermarket.core.entity.ProductCategory</class>-->
-        <!--<class>ro.sda.hypermarket.core.entity.SaleProduct</class>-->
-        <!--<class>ro.sda.hypermarket.core.entity.Sale</class>-->
-        <!--<class>ro.sda.hypermarket.core.entity.Client</class>-->
+        <class>ro.sda.bookingaccommodation.core.entity.Host</class>
+        <class>ro.sda.bookingaccommodation.core.entity.Property</class>
+        <class>ro.sda.bookingaccommodation.core.entity.Booking</class>
+        <class>ro.sda.bookingaccommodation.core.entity.Payment</class>
+        <class>ro.sda.bookingaccommodation.core.entity.Rating</class>
+        <!--<class>ro.sda.bookingaccommodation.core.entity.Availability</class>-->
+        <class>ro.sda.bookingaccommodation.core.entity.Client</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
 

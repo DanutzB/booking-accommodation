@@ -9,14 +9,14 @@ import java.util.Objects;
 @Table (name = "ratings", schema = "booking-accommodation")
 public class Rating extends BaseEntity {
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;
 
     @Column(name = "comment")
     private String comment;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "property_id")
     private Property property;
 
