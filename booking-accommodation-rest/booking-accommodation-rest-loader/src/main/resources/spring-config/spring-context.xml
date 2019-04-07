@@ -19,5 +19,5 @@
     <context:component-scan base-package="ro.sda" />
     <tx:annotation-driven />
     <mvc:annotation-driven />
-    <jpa:repositories base-package="ro.sda.booking-accommodation.core.repository" />
+    <jpa:repositories base-package="ro.sda.bookingaccommodation.core.repository" />
 </beans>
