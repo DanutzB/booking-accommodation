@@ -11,9 +11,6 @@ import ro.sda.bookingaccommodation.core.repository.ClientRepository;
 public class ClientServiceImpl implements ClientService {
 
     @Autowired
-    private ClientService clientService;
-
-    @Autowired
     private ClientRepository clientRepository;
 
     @Override

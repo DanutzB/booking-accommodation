@@ -32,5 +32,5 @@ public class RatingServiceImpl implements RatingService {
     public void deleteRating(Rating rating) {
         ratingRepository.delete(rating);
     }
-    
+
 }

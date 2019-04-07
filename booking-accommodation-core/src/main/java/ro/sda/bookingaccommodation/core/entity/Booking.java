@@ -14,16 +14,16 @@ public class Booking extends BaseEntity {
     @JoinColumn(name = "client_id", nullable = false, updatable = false)
     private Client client;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "property_id")
     private Property property;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "check_in", length = 8, nullable = false)
+    @Column(name = "check_in", nullable = false)
     private Date checkIn;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "check_out", length = 8, nullable = false)
+    @Column(name = "check_out", nullable = false)
     private Date checkOut;
 
     @Column(name = "no_of_persons", length = 3,nullable = false)
@@ -36,7 +36,7 @@ public class Booking extends BaseEntity {
     private Integer noOfRooms;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "booking_date", length = 8, nullable = false)
+    @Column(name = "booking_date", nullable = false)
     private Date bookingDate;
 
     public Client getClient() {

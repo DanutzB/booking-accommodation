@@ -14,7 +14,7 @@ public class Payment extends BaseEntity {
     private Long amount;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "payment_date", length = 8, nullable = false)
+    @Column(name = "payment_date", nullable = false)
     private Date paymentDate;
 
     @OneToOne(fetch = FetchType.LAZY)
