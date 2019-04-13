@@ -19,7 +19,7 @@ public class ClientServiceTest {
 
     @Test
     @Rollback(false)
-    public void testCreate(){
+    public void testCreate() {
         Client client = new Client();
         client.setName("Constantin");
         client.setEmail("constantin@yahoo.com");
@@ -30,7 +30,7 @@ public class ClientServiceTest {
 
     @Test
     @Rollback(false)
-    public void testRead(){
+    public void testRead() {
 
         Client cli = clientService.readClient(1L);
         Long actual = cli.getId();
@@ -42,27 +42,17 @@ public class ClientServiceTest {
     @Test
     @Rollback(false)
     public void testUpdate() {
-        Client client = new Client();
-        client.setName("Vasile");
-        client.setEmail("vasile@yahoo.com");
-        client.setTelephone("0768989898");
-        clientService.createClient(client);
+        Client client = clientService.readClient(1L);
         System.out.println("Update " + client + " to:");
-        Client cli = new Client();
-        cli.setName("Ionut");
-        cli.setEmail("ionut@gmail.com");
-        cli.setTelephone("0781955638");
+        client.setName("Bogdan");
+        client.setEmail("bogdan@yahoo.com");
         clientService.updateClient(client);
-        Client expected = clientService.readClient(cli.getId());
-        Client actual = cli;
-        System.out.println(expected.toString());
-        Assert.assertEquals(expected, actual);
-        clientService.deleteClient(client.getId());
+        System.out.println(client);
     }
 
     @Test
     @Rollback(false)
-    public void testDelete(){
+    public void testDelete() {
         Client client = new Client();
         client.setName("Vasile");
         client.setEmail("vasile@yahoo.com");
