@@ -38,25 +38,27 @@ public class HostServiceTest {
         Assert.assertEquals(expected, actual);
     }
 
-//    @Test
-//    @Rollback(false)
-//    public void testUpdate() {
-//        Host host = new Host();
-//        host.setName("Spiridon");
-//        host.setEmail("spiridon@yahoo.com");
-//        hostService.createHost(host);
-//        System.out.println("Update " + host + " to:");
-//        Host host1 = new Host();
-//        cli.setName("Ionut");
-//        cli.setEmail("ionut@gmail.com");
-//        cli.setTelephone("0781955638");
-//        clientService.updateClient(client);
-//        Client expected = clientService.readClient(cli.getId());
-//        Client actual = cli;
-//        System.out.println(expected.toString());
-//        Assert.assertEquals(expected, actual);
-//        clientService.deleteClient(client.getId());
-//    }
+    @Test
+    @Rollback(false)
+    public void testUpdate() {
+        Host host1 = hostService.readHost(5L);
+        host1.setName("Valentin");
+        host1.setEmail("valentin@gmail.com");
+        hostService.updateHost(host1);
+        Host expected = hostService.readHost(host1.getId());
+        Host actual = host1;
+        System.out.println(expected.toString());
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    @Rollback(false)
+    public void testDelete() {
+        Host host = hostService.readHost(7L);
+        hostService.deleteHost(host.getId());
+        Assert.assertNotNull(host);
+    }
+
 
 
 
