@@ -6,6 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 import ro.sda.bookingaccommodation.core.entity.Client;
 import ro.sda.bookingaccommodation.core.repository.ClientRepository;
 
+import java.util.List;
+
 @Service
 @Transactional(readOnly = true, rollbackFor = Exception.class)
 public class ClientServiceImpl implements ClientService {
@@ -29,7 +31,18 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
+    @Transactional
     public void deleteClient(Long clientId) {
         clientRepository.delete(clientId);
+    }
+
+    @Override
+    public List<Client>findAll(){
+        return clientRepository.findAll();
+    }
+
+    @Override
+    public Client findById(Long id) {
+        return clientRepository.findById(id);
     }
 }
