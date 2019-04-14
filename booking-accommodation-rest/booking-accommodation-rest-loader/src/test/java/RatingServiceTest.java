@@ -108,7 +108,7 @@ public class RatingServiceTest {
     @Rollback(false)
     public void testDelete() {
         Rating rating = ratingService.readRating(1L);
-        ratingService.deleteRating(rating);
+        ratingService.deleteRating(rating.getId());
         Assert.assertNotNull(rating);
     }
 

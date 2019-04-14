@@ -57,6 +57,64 @@ public class PaymentServiceTest {
         Booking booking = new Booking();
         Calendar checkInCal = new GregorianCalendar(2014, 2, 11);
         Date checkIn = checkInCal.getTime();
+
+        Calendar checkOutCal = new GregorianCalendar(2014, 2, 11);
+        Date checkOut = checkOutCal.getTime();
+
+        booking.setClient(client);
+        booking.setProperty(property);
+        booking.setCheckIn(checkIn);
+        booking.setCheckOut(checkOut);
+        booking.setNoOfPersons(2);
+        booking.setRoomType(RoomType.DOUBLE.toString());
+        booking.setNoOfRooms(1);
+        booking.setBookingDate(new Date());
+        bookingService.createBooking(booking);
+
+        Payment payment = new Payment();
+        payment.setAmount(320L);
+        payment.setPaymentDate(new Date());
+        payment.setBooking(booking);
+        paymentService.createPayment(payment);
+        Assert.assertNotNull(payment);
+    }
+
+    @Test
+    @Rollback(false)
+    public void testRead(){
+        Payment pay = paymentService.readPayment(6L);
+        Long actual = pay.getId();
+        Long expected = 6L;
+        System.out.println(toString());
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    @Rollback(false)
+    public void testUpdate(){
+        Client client = new Client();
+        client.setName("Adrian");
+        client.setEmail("adrianooo@yahoo.com");
+        client.setTelephone("0722001122");
+        clientService.createClient(client);
+
+        Host host = new Host();
+        host.setName("Valentino Rossi");
+        host.setEmail("rossivalentino@gmail.com");
+        hostService.createHost(host);
+
+        Property property = new Property();
+        property.setPropertyName("Venezia");
+        property.setHost(host);
+        property.setPropertyAddress("via garibaldi");
+        property.setPropertyContactNo("0744004400");
+        property.setPropertyEmail("rossivalentino@gmail.com");
+        propertyService.createProperty(property);
+        Assert.assertNotNull(property);
+
+        Booking booking = new Booking();
+        Calendar checkInCal = new GregorianCalendar(2014, 2, 11);
+        Date checkIn = checkInCal.getTime();
         Calendar checkOutCal = new GregorianCalendar(2014, 2, 11);
         Date checkOut = checkOutCal.getTime();
         booking.setClient(client);
@@ -69,16 +127,23 @@ public class PaymentServiceTest {
         booking.setBookingDate(new Date());
         bookingService.createBooking(booking);
 
-        Date date = new GregorianCalendar(2019, Calendar.MONTH, 7).getTime();
-        Payment payment = new Payment();
-        payment.setAmount(320L);
-        payment.setPaymentDate(date);
+        Payment payment = paymentService.readPayment(6L);
+        System.out.println("Update " + payment + " to:");
+        payment.setAmount(450L);
+        payment.setPaymentDate(new Date());
         payment.setBooking(booking);
-        paymentService.createPayment(payment);
+        paymentService.updatePayment(payment);
+        System.out.println(payment);
+    }
+
+    @Test
+    @Rollback(false)
+    public void testDelete() {
+        Payment payment = paymentService.readPayment(6L);
+        paymentService.deletePayment(6L);
         Assert.assertNotNull(payment);
     }
 
-    
 
 
 }

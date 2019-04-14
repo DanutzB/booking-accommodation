@@ -94,7 +94,7 @@ public class BookingServiceTest {
     @Rollback(false)
     public void testDelete(){
         Booking booking = bookingService.readBooking(1L);
-        bookingService.deletedeBooking(1L);
+        bookingService.deleteBooking(1L);
         Assert.assertNotNull(booking);
     }
 }

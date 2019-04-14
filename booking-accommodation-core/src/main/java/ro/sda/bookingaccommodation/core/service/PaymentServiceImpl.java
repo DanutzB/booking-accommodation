@@ -6,6 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 import ro.sda.bookingaccommodation.core.entity.Payment;
 import ro.sda.bookingaccommodation.core.repository.PaymentRepository;
 
+import java.util.List;
+
 @Service
 @Transactional(readOnly = true, rollbackFor = Exception.class)
 public class PaymentServiceImpl implements PaymentService{
@@ -31,4 +33,16 @@ public class PaymentServiceImpl implements PaymentService{
     public void deletePayment(Long paymentId) {
         paymentRepository.delete(paymentId);
     }
+
+    @Override
+    public List<Payment> findAll(){
+        return paymentRepository.findAll();
+    }
+
+    @Override
+    public Payment findById(Long id){
+        return paymentRepository.findById(id);
+    }
+
+
 }

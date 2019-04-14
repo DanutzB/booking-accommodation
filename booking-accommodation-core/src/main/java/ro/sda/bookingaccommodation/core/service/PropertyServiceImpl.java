@@ -7,6 +7,8 @@ import ro.sda.bookingaccommodation.core.entity.Property;
 import ro.sda.bookingaccommodation.core.entity.Rating;
 import ro.sda.bookingaccommodation.core.repository.PropertyRepository;
 
+import java.util.List;
+
 @Service
 @Transactional(readOnly = true, rollbackFor = Exception.class)
 public class PropertyServiceImpl implements PropertyService {
@@ -33,4 +35,16 @@ public class PropertyServiceImpl implements PropertyService {
     public void deleteProperty(Long propertyId) {
         propertyRepository.delete(propertyId);
     }
+
+    @Override
+    public List<Property> findAll() {
+        return propertyRepository.findAll();
+    }
+
+    @Override
+    public Property findById(Long id) {
+        return propertyRepository.findById(id);
+    }
+
+
 }

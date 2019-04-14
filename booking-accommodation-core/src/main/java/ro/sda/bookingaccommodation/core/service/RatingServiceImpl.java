@@ -6,6 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 import ro.sda.bookingaccommodation.core.entity.Rating;
 import ro.sda.bookingaccommodation.core.repository.RatingRepository;
 
+import java.util.List;
+
 @Service
 @Transactional(readOnly = true, rollbackFor = Exception.class)
 public class RatingServiceImpl implements RatingService {
@@ -29,8 +31,19 @@ public class RatingServiceImpl implements RatingService {
     }
 
     @Override
-    public void deleteRating(Rating rating) {
-        ratingRepository.delete(rating);
+    public void deleteRating(Long id) {
+        ratingRepository.delete(id);
     }
+
+    @Override
+    public List<Rating> findAll() {
+        return ratingRepository.findAll();
+    }
+
+    @Override
+    public Rating findById(Long id) {
+        return ratingRepository.findById(id);
+    }
+
 
 }

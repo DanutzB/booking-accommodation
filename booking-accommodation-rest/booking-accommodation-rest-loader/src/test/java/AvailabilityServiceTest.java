@@ -15,6 +15,8 @@ import ro.sda.bookingaccommodation.core.service.HostService;
 import ro.sda.bookingaccommodation.core.service.PropertyService;
 
 import java.math.BigDecimal;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -35,16 +37,22 @@ public class AvailabilityServiceTest {
     @Rollback(false)
     public void testCreate(){
         Availability availability = new Availability();
-        availability.setFromDate(new GregorianCalendar(2019, 6, 4).getTime());
-        availability.setToDate(new GregorianCalendar(2019, 8, 4).getTime());
+        Calendar checkInCal = new GregorianCalendar(2014, 2, 11);
+        Date checkIn = checkInCal.getTime();
+        Calendar checkOutCal = new GregorianCalendar(2014, 2, 11);
+        Date checkOut = checkOutCal.getTime();
+        availability.setFromDate(checkIn);
+        availability.setToDate(checkOut);
         availability.setPriceDouble(new BigDecimal(300));
         availability.setPriceSingle(new BigDecimal(150));
         availability.setRoomName("111");
         availability.setRoomType(RoomType.DOUBLE);
+
         Host host = new Host();
         host.setName("Maria");
         host.setEmail("totMaria@gmail.com");
         hostService.createHost(host);
+
         Property property = new Property();
         property.setPropertyName("PensiuneaMaria");
         property.setPropertyEmail("maria@gmail.com");

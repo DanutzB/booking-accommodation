@@ -1,42 +1,40 @@
 package ro.sda.bookingaccommodation.rest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ro.sda.bookingaccommodation.core.entity.Client;
-import ro.sda.bookingaccommodation.core.service.ClientService;
+import ro.sda.bookingaccommodation.core.entity.Booking;
+import ro.sda.bookingaccommodation.core.service.BookingService;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 @Service
-@Path("/client")
-public class ClientRestService {
-
+@Path("/booking")
+public class BookingRestService {
     @Autowired
-    private ClientService clientService;
+    private BookingService bookingService;
 
     @Path("/find-all")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Client> findAll(){
-        return clientService.findAll();
+    public List<Booking>findAll(){
+        return bookingService.findAll();
     }
 
-    @Path("/find/{id}")
+    @Path("find/{id}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Client findById(@PathParam("id") long id){
-        return clientService.findById(id);
+    public Booking findById(@PathParam("id") Long id){
+        return bookingService.findById(id);
     }
 
     @Path("/delete")
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
-    public void deleteClient(@QueryParam("clientId") long id){
-        clientService.deleteClient(id);
+    public void deleteBooking(@QueryParam("bookingId") long id){
+        bookingService.deleteBooking(id);
     }
 
     @Path("/create")
@@ -44,8 +42,8 @@ public class ClientRestService {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
-    public Client create(Client client){
-        return clientService.createClient(client);
+    public Booking create(Booking booking){
+        return bookingService.createBooking(booking);
     }
 
 
