@@ -16,6 +16,8 @@ import ro.sda.bookingaccommodation.core.service.ClientService;
 import ro.sda.bookingaccommodation.core.service.HostService;
 import ro.sda.bookingaccommodation.core.service.PropertyService;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -39,9 +41,13 @@ public class BookingServiceTest {
     @Rollback(false)
     public void testCreate() {
         Booking booking = new Booking();
-        booking.setBookingDate(new GregorianCalendar(2019, 5, 13).getTime());
-        booking.setCheckIn(new GregorianCalendar(2019, 6, 4).getTime());
-        booking.setCheckOut(new GregorianCalendar(2019,6,10).getTime());
+        booking.setBookingDate(new Date());
+        Calendar checkInCal = new GregorianCalendar(2014, 2, 11);
+        Date checkIn = checkInCal.getTime();
+        booking.setCheckIn(checkIn);
+        Calendar checkOutCal = new GregorianCalendar(2014, 2, 11);
+        Date checkOut = checkOutCal.getTime();
+        booking.setCheckOut(checkOut);
         booking.setNoOfPersons(2);
         booking.setNoOfRooms(1);
         booking.setRoomType(RoomType.DOUBLE.toString());

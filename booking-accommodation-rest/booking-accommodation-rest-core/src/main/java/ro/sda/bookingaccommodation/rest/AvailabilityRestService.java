@@ -7,6 +7,9 @@ import ro.sda.bookingaccommodation.core.service.AvailabilityService;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -21,6 +24,15 @@ public class AvailabilityRestService {
     @Produces(MediaType.APPLICATION_JSON)
     public List<Availability>findAll(){
         return availabilityService.findAll();
+    }
+
+    @Path("/find")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Availability>findByFromDateLessThanEqualAndToDateGreaterThanEqual(@QueryParam("fromDate") String fromDate, @QueryParam("toDate") String toDate) throws ParseException {
+        Date from = new SimpleDateFormat("yyyy-MM-dd").parse(fromDate);
+        Date to = new SimpleDateFormat("yyyy-MM-dd").parse(toDate);
+        return availabilityService.findByFromDateLessThanEqualAndToDateGreaterThanEqual(from, to);
     }
 
     @Path("find/{id}")

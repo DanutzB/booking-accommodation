@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ro.sda.bookingaccommodation.core.entity.Availability;
 import ro.sda.bookingaccommodation.core.repository.AvailabilityRepository;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -44,4 +45,11 @@ public class AvailabilityServiceImpl implements AvailabilityService {
     public Availability findById(Long id) {
         return availabilityRepository.findById(id);
     }
+
+    @Override
+    public List<Availability> findByFromDateLessThanEqualAndToDateGreaterThanEqual(Date start, Date end) {
+        return availabilityRepository.findByFromDateLessThanEqualAndToDateGreaterThanEqual(start, end);
+    }
+
+
 }

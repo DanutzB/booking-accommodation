@@ -4,4 +4,5 @@ import ro.sda.bookingaccommodation.core.base.EntityRepository;
 import ro.sda.bookingaccommodation.core.entity.Booking;
 
 public interface BookingRepository extends EntityRepository<Booking> {
+
 }
