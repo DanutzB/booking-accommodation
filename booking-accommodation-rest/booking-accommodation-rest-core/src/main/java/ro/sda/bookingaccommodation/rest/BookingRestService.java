@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ro.sda.bookingaccommodation.core.entity.Booking;
 import ro.sda.bookingaccommodation.core.service.BookingService;
+import ro.sda.bookingaccomodation.commons.email.EmailService;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -12,8 +13,12 @@ import java.util.List;
 @Service
 @Path("/booking")
 public class BookingRestService {
+
     @Autowired
     private BookingService bookingService;
+
+    @Autowired
+    private EmailService emailService;
 
     @Path("/find-all")
     @GET
@@ -43,7 +48,10 @@ public class BookingRestService {
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
     public Booking create(Booking booking){
-        return bookingService.createBooking(booking);
+        Booking bookingDone = bookingService.createBooking(booking);
+        emailService.sendEmail("danieldatabase79@gmail.com", "booking confirmation", "Booking details");
+
+        return bookingDone;
     }
 
 

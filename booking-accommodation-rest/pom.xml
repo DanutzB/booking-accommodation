@@ -46,6 +46,11 @@
                 <artifactId>jackson-jaxrs-json-provider</artifactId>
                 <version>${fasterxml.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-jaxb-provider</artifactId>
+                <version>${resteasy.version}</version>
+            </dependency>
             <!-- RESTEASY Dependencies END -->
 
             <!-- CORS Filter Dependencies START -->

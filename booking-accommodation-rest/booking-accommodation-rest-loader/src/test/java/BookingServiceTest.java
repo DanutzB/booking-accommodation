@@ -73,6 +73,7 @@ public class BookingServiceTest {
 
         booking.setProperty(property);
         bookingService.createBooking(booking);
+
         Assert.assertNotNull(booking);
     }
 
